@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {StyleSheet, Text, SafeAreaView, View} from 'react-native';
 import * as Location from "expo-location";
-import MapView from "react-native-maps";
+import MapView, {Marker} from "react-native-maps";
 
 const App = () => {
     const [locationError, setLocationError] = useState(null);
@@ -21,7 +21,7 @@ const App = () => {
             }
 
             let location = await Location.getCurrentPositionAsync({});
-            setLocation(location.coords);
+            setLocation({...location.coords, latitudeDelta: 0, longitudeDelta: 0.001});
         } catch (error) {
             console.error("Error requesting location permission:", error);
         }
@@ -32,8 +32,10 @@ const App = () => {
             <View style={{flex: 1}}>
                 <MapView
                     style={styles.map}
-                    region={{...location, latitudeDelta: 0, longitudeDelta: 0.001}}
-                />
+                    region={location}
+                >
+                    {location && <Marker coordinate={location} />}
+                </MapView>
             </View>
             <View style={{flex: 1}}>
                 <Text>{JSON.stringify(location, null, 2)}</Text>
