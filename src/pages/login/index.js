@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
     StyleSheet,
     SafeAreaView,
@@ -8,16 +8,30 @@ import {
     TextInput,
     Dimensions,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import {StatusBar} from "expo-status-bar";
 import LoginSVG from "../../../assets/login.svg";
+import {dispatch, actions, selectors} from "../../../src/redux";
+
+const {
+    user: {login}
+} = actions;
+const {
+    auth: {selectAuthLoading, selectCurrentUser}
+} = selectors;
 
 const screenWidth = Dimensions.get("window").width;
 const bannerHeight = (screenWidth / 75) * 46; // Image ratio is 75x46
 
 const Login = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = () => {
+        dispatch(login({username, password}))
+    }
     return (
         <>
-            <StatusBar style="light" />
+            <StatusBar style="light"/>
             <SafeAreaView>
                 <LoginSVG {...styles.banner}/>
             </SafeAreaView>
@@ -37,7 +51,7 @@ const Login = () => {
                         placeholderTextColor="#cdcdcf"
                     />
 
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity style={styles.button} onPress={handleLogin}>
                         <Text style={styles.buttonText}>Login</Text>
                     </TouchableOpacity>
                 </View>

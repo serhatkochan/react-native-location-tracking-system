@@ -1,8 +1,13 @@
-import LoginPage from "./src/pages/login-page";
+import { Provider } from 'react-redux';
+import store from './src/redux/store'
+
+import Main from "./src/pages/main";
 
 const App = () => {
     return (
-        <LoginPage />
+        <Provider store={store}>
+                <Main />
+        </Provider>
     );
 };
 export default App;

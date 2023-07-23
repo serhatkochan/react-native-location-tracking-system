@@ -9,6 +9,8 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-navigation/bottom-tabs": "^6.5.8",
+    "@react-navigation/native": "^6.1.7",
     "expo": "~48.0.18",
     "expo-constants": "^14.4.2",
     "expo-location": "^16.1.0",
@@ -17,7 +19,11 @@
     "react-native": "0.71.8",
     "react-native-maps": "^1.7.1",
     "react-native-svg": "13.4.0",
-    "react-native-svg-transformer": "^1.1.0"
+    "react-native-svg-transformer": "^1.1.0",
+    "react-redux": "^8.1.1",
+    "redux": "^4.2.1",
+    "redux-saga": "^1.2.3",
+    "reselect": "^4.1.8"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
