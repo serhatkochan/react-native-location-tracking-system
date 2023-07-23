@@ -1,11 +1,11 @@
 import {useEffect, useState} from "react";
-import {StatusBar} from 'expo-status-bar';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, SafeAreaView, View} from 'react-native';
 import * as Location from "expo-location";
+import MapView from "react-native-maps";
 
 const App = () => {
     const [locationError, setLocationError] = useState(null);
-    const [location, setLocation] = useState({lat: null, lon: null});
+    const [location, setLocation] = useState(null);
 
     useEffect(() => {
         getLocation();
@@ -21,27 +21,36 @@ const App = () => {
             }
 
             let location = await Location.getCurrentPositionAsync({});
-            setLocation({lat: location.coords.latitude, lon: location.coords.longitude});
+            setLocation(location.coords);
         } catch (error) {
             console.error("Error requesting location permission:", error);
         }
     };
 
     return (
-        <View style={styles.container}>
-            <Text>Open up App.js to start working on your app!</Text>
-            <Text>{location.lat} - {location.lon}</Text>
-            <StatusBar style="auto"/>
-        </View>
+        <SafeAreaView style={styles.container}>
+            <View style={{flex: 1}}>
+                <MapView
+                    style={styles.map}
+                    region={{...location, latitudeDelta: 0, longitudeDelta: 0.001}}
+                />
+            </View>
+            <View style={{flex: 1}}>
+                <Text>{JSON.stringify(location, null, 2)}</Text>
+            </View>
+        </SafeAreaView>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        marginTop: 40,
         backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+    },
+    map: {
+        width: '100%',
+        height: '100%',
     },
 });
 
