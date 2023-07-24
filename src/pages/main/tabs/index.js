@@ -1,5 +1,5 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Home from "../home";
+import Home from "../home/Home";
 import Settings from "../settings";
 import {NavigationContainer} from "@react-navigation/native";
 
