@@ -15,7 +15,7 @@ const Home = () => {
         dispatch(logout());
     }
     return (
-        <SafeAreaView>
+        <SafeAreaView style={{marginTop: 50}}>
             <Text>{JSON.stringify(auth, null, 2)}</Text>
             <TouchableOpacity style={styles.button} onPress={handleLogout}>
                 <Text>Logout</Text>

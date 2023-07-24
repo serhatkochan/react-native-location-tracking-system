@@ -1,13 +1,13 @@
 import {Text} from "react-native";
 
-const Settings = () => {
+const Profile = () => {
     return (
         <>
             <Text>
-                Settings
+                Profile
             </Text>
         </>
     );
 };
 
-export default Settings;
+export default Profile;
