@@ -1,7 +1,7 @@
 import { call, put, takeLatest, delay } from "redux-saga/effects";
 import actions from "../actions";
-import { LOGIN } from "../constants/auth";
 import services from "../services";
+import {LOGIN, LOGOUT} from "../constants/auth";
 
 const {
     user: {pending, setAuth}
@@ -9,6 +9,7 @@ const {
 
 export default function* watchAuth() {
     yield takeLatest(LOGIN, loginSaga);
+    yield takeLatest(LOGOUT, logoutSaga);
 }
 
 function* loginSaga({payload}) {
@@ -16,6 +17,16 @@ function* loginSaga({payload}) {
         yield put(pending());
         yield delay(2000);
         yield put(setAuth(payload));
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+function* logoutSaga() {
+    try {
+        yield put(pending());
+        yield delay(1000);
+        yield put(setAuth(null));
     } catch (error) {
         console.error(error);
     }
