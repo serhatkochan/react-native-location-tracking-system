@@ -1,12 +1,15 @@
 import { Provider } from 'react-redux';
 import store from './src/redux/store'
 
-import Main from "./src/pages/main";
+import {NavigationContainer} from "@react-navigation/native";
+import AuthStack from "./src/navigation/AuthStack";
 
 const App = () => {
     return (
         <Provider store={store}>
-                <Main />
+                <NavigationContainer>
+                    <AuthStack />
+                </NavigationContainer>
         </Provider>
     );
 };
