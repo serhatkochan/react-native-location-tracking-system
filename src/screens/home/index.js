@@ -8,17 +8,23 @@ const {
 const {
     auth: {selectAuthLoading, selectCurrentUser}
 } = selectors;
-const Home = () => {
+const Home = ({navigation}) => {
     const auth = useSelector(selectCurrentUser);
 
     const handleLogout = () => {
         dispatch(logout());
+    }
+    const handleNavigate = () => {
+        navigation.navigate('LocationTest', {customState: 'hehe'});
     }
     return (
         <SafeAreaView style={{marginTop: 50}}>
             <Text>{JSON.stringify(auth, null, 2)}</Text>
             <TouchableOpacity style={styles.button} onPress={handleLogout}>
                 <Text>Logout</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={handleNavigate}>
+                <Text>Go to Location Test</Text>
             </TouchableOpacity>
         </SafeAreaView>
     );
