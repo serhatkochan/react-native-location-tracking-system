@@ -10,14 +10,14 @@ import {FontAwesome5, Ionicons} from "@expo/vector-icons";
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-const HomeStack = () => {
+const HomeStack = () => { // extra stack
     return (
         <Stack.Navigator>
-            <Stack.Screen
-                name="Home"
-                component={Home}
-                options={{headerShown: false}}
-            />
+            {/*<Stack.Screen*/}
+            {/*    name="Home"*/}
+            {/*    component={Home}*/}
+            {/*    options={{headerShown: false}}*/}
+            {/*/>*/}
             {/*<Stack.Screen*/}
             {/*    name="LocationTest"*/}
             {/*    component={LocationTest}*/}
@@ -40,8 +40,8 @@ const TabNavigator = () => {
                 tabBarActiveTintColor: 'yellow',
             }}>
             <Tab.Screen
-                name="Home2"
-                component={HomeStack}
+                name="Home"
+                component={Home}
                 options={({route}) => ({
                     tabBarIcon: ({color, size}) => (
                         <Ionicons name="home-outline" color={color} size={size}/>
