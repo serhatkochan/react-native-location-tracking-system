@@ -17,7 +17,7 @@ const AuthStack = () => {
         <Drawer.Navigator
             drawerContent={props => <CustomDrawer {...props} />}
             screenOptions={{
-                headerShown: true,
+                headerShown: false,
                 drawerActiveBackgroundColor: '#aa18ea',
                 drawerActiveTintColor: '#fff',
                 drawerInactiveTintColor: '#333',

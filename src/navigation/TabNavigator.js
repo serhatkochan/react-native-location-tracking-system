@@ -5,7 +5,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from '../screens/home';
 import LocationTest from '../screens/location-test';
 
-import { FontAwesome5, Ionicons} from "@expo/vector-icons";
+import {FontAwesome5, Ionicons} from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -18,13 +18,13 @@ const HomeStack = () => {
                 component={Home}
                 options={{headerShown: false}}
             />
-            <Stack.Screen
-                name="LocationTest"
-                component={LocationTest}
-                options={({route}) => ({
-                    title: route.params?.title,
-                })}
-            />
+            {/*<Stack.Screen*/}
+            {/*    name="LocationTest"*/}
+            {/*    component={LocationTest}*/}
+            {/*    options={({route}) => ({*/}
+            {/*        title: route.params?.title,*/}
+            {/*    })}*/}
+            {/*/>*/}
         </Stack.Navigator>
     );
 };
@@ -43,12 +43,17 @@ const TabNavigator = () => {
                 name="Home2"
                 component={HomeStack}
                 options={({route}) => ({
-                    tabBarStyle: {
-                        display: "flex",
-                        backgroundColor: '#AD40AF',
-                    },
                     tabBarIcon: ({color, size}) => (
-                        <Ionicons name="home-outline" color={color} size={size} />
+                        <Ionicons name="home-outline" color={color} size={size}/>
+                    ),
+                })}
+            />
+            <Tab.Screen
+                name="LocationTest"
+                component={LocationTest}
+                options={() => ({
+                    tabBarIcon: ({color, size}) => (
+                        <Ionicons name="location" color={color} size={size} />
                     ),
                 })}
             />
