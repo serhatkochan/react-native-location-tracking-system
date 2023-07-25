@@ -40,7 +40,7 @@ const TabNavigator = () => {
                 tabBarActiveTintColor: 'yellow',
             }}>
             <Tab.Screen
-                name="Home"
+                name="Home2"
                 component={Home}
                 options={({route}) => ({
                     tabBarIcon: ({color, size}) => (
