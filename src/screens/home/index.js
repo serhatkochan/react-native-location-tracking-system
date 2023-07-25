@@ -1,4 +1,4 @@
-import {SafeAreaView, StyleSheet, Text, TouchableOpacity} from "react-native";
+import {ImageBackground, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {useSelector} from "react-redux";
 import {selectors, actions, dispatch} from "../../redux";
 
@@ -18,14 +18,32 @@ const Home = ({navigation}) => {
         navigation.navigate('LocationTest', {customState: 'hehe'});
     }
     return (
-        <SafeAreaView style={{marginTop: 50}}>
-            <Text>{JSON.stringify(auth, null, 2)}</Text>
-            <TouchableOpacity style={styles.button} onPress={handleLogout}>
-                <Text>Logout</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={handleNavigate}>
-                <Text>Go to Location Test</Text>
-            </TouchableOpacity>
+        <SafeAreaView style={{flex: 1, backgroundColor: '#fff', marginTop: 20}}>
+            <ScrollView style={{padding: 20}}>
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        marginBottom: 20,
+                    }}>
+                    <Text style={{fontSize: 18}}>
+                        Serhat Test 1 2 3
+                    </Text>
+                    <TouchableOpacity onPress={() => navigation.openDrawer()}>
+                        <ImageBackground
+                            source={require('../../../assets/images/user-profile.jpg')}
+                            style={{width: 35, height: 35}}
+                            imageStyle={{borderRadius: 25}}
+                        />
+                    </TouchableOpacity>
+                </View>
+
+                <View>
+                    <Text>
+                        Content
+                    </Text>
+                </View>
+            </ScrollView>
         </SafeAreaView>
     );
 };
