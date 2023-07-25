@@ -2,8 +2,8 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import Home from '../pages/main/home';
-import LocationTest from '../pages/location-test';
+import Home from '../screens/home';
+import LocationTest from '../screens/location-test';
 
 import { FontAwesome5, Ionicons} from "@expo/vector-icons";
 

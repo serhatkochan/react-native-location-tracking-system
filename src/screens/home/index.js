@@ -1,6 +1,6 @@
 import {SafeAreaView, StyleSheet, Text, TouchableOpacity} from "react-native";
 import {useSelector} from "react-redux";
-import {selectors, actions, dispatch} from "../../../redux";
+import {selectors, actions, dispatch} from "../../redux";
 
 const {
     user: {logout}

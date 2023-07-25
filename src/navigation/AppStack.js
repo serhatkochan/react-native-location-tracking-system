@@ -5,8 +5,8 @@ import CustomDrawer from '../components/Drawer';
 
 import { Ionicons } from "@expo/vector-icons";
 
-import Profile from '../pages//main/profile';
-import Settings from '../pages/main/settings';
+import Profile from '../screens/profile';
+import Settings from '../screens/settings';
 
 import TabNavigator from './TabNavigator';
 

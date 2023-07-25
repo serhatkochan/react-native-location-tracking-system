@@ -9,7 +9,7 @@ import {
     Dimensions,
 } from "react-native";
 import {StatusBar} from "expo-status-bar";
-import LoginSVG from "../../../assets/login.svg";
+import LoginSVG from "../../../assets/images/login.svg";
 import {dispatch, actions, selectors} from "../../../src/redux";
 
 const {
