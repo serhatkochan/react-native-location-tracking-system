@@ -18,7 +18,7 @@ const Home = ({navigation}) => {
         navigation.navigate('LocationTest', {customState: 'hehe'});
     }
     return (
-        <SafeAreaView style={{flex: 1, backgroundColor: '#fff', marginTop: 20}}>
+        <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
             <ScrollView style={{padding: 20}}>
                 <View
                     style={{
