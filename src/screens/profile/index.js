@@ -1,12 +1,12 @@
-import {Text} from "react-native";
+import {SafeAreaView, Text} from "react-native";
 
 const Profile = () => {
     return (
-        <>
+        <SafeAreaView>
             <Text>
                 Profile
             </Text>
-        </>
+        </SafeAreaView>
     );
 };
 
