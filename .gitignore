@@ -47,3 +47,5 @@ yarn-error.log*
 .idea/
 .vscode
 .vscode/
+
+src/environment
